@@ -7,7 +7,7 @@ import (
 	_ "modernc.org/tk9.0/themes/azure"
 )
 
-func openfile(type_name string, ext []string) string {
+func openfile(type_name string, ext []string) []string {
 	ActivateTheme("azure light")
 	// menubtn := App.Menubutton(Width(10), Height(1), Txt(`Test`))
 	// Pack(Label(Image(NewPhoto(Data(gopher)))),
@@ -17,4 +17,5 @@ func openfile(type_name string, ext []string) string {
 	// App.Center().Wait()
 	files := GetOpenFile(Filetypes([]FileType{{TypeName: "Go files", Extensions: []string{".go"}, MacType: ""}}))
 	fmt.Println(files)
+	return files
 }
