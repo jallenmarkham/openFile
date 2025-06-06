@@ -9,13 +9,12 @@ import (
 
 func Openfile(type_name string, ext []string) []string {
 	ActivateTheme("azure light")
-	// menubtn := App.Menubutton(Width(10), Height(1), Txt(`Test`))
-	// Pack(Label(Image(NewPhoto(Data(gopher)))),
-	// 	TExit(),
-	// 	menubtn,
-	// 	Padx("1m"), Pady("2m"), Ipadx("1m"), Ipady("1m"))
-	// App.Center().Wait()
-	files := GetOpenFile(Filetypes([]FileType{{TypeName: type_name, Extensions: ext, MacType: ""}}))
+
+	files := GetOpenFile(Multiple(false), Filetypes([]FileType{{TypeName: type_name, Extensions: ext, MacType: ""}}))
 	fmt.Println(files)
-	return files
+	var fname string
+	for _, fpart := range files {
+		fname = fname + fpart
+	}
+	return fname
 }
