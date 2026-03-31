@@ -16,3 +16,11 @@ func Openfile(type_name string, ext []string) string {
 	fname := strings.Join(files, " ")
 	return fname
 }
+
+func Opendir(initdir string) string {
+	ActivateTheme("azure light")
+
+	dir := ChooseDirectory(Initialdir(initdir), Mustexist(true))
+	fmt.Println(dir)
+	return dir
+}
